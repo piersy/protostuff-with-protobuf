@@ -2,9 +2,12 @@ package com.piersy.prototest;
 
 import com.piersy.prototest.generated.UserAccountsMessage;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.objenesis.ObjenesisStd;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 import static org.hamcrest.MatcherAssert.*;
@@ -25,6 +28,13 @@ public class UserAccountsProtostuffProtobufSerialisationDeserialisationTest {
         userAccounts = new UserAccounts(Arrays.asList(new UserAccount(USER_NAME, ACCOUNT_TYPE, PASSWORD)));
         userAccountsMessage = UserAccountsMessage.UserAccounts.newBuilder().addUserAccounts(
                 UserAccountsMessage.UserAccounts.UserAccount.newBuilder().setUserName(USER_NAME).setAccountType(ACCOUNT_TYPE).setPassword(PASSWORD)).build();
+    }
+
+    @Ignore
+    @Test
+    public void writeSerialisedMessagesToFiles() throws Exception {
+        Files.write(Paths.get("proto-messages/UserAccountsMessage.protostuff"), protostuffSerialiser.serialise(userAccounts));
+        Files.write(Paths.get("proto-messages/UserAccountMsessage.protobuf"), userAccountsMessage.toByteArray());
     }
 
     @Test
