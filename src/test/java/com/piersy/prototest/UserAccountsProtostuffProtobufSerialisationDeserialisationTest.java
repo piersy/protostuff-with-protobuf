@@ -34,7 +34,7 @@ public class UserAccountsProtostuffProtobufSerialisationDeserialisationTest {
     @Test
     public void writeSerialisedMessagesToFiles() throws Exception {
         Files.write(Paths.get("proto-messages/UserAccountsMessage.protostuff"), protostuffSerialiser.serialise(userAccounts));
-        Files.write(Paths.get("proto-messages/UserAccountMsessage.protobuf"), userAccountsMessage.toByteArray());
+        Files.write(Paths.get("proto-messages/UserAccountsMessage.protobuf"), userAccountsMessage.toByteArray());
     }
 
     @Test
