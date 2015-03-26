@@ -1,0 +1,9 @@
+option java_package = "com.piersy.prototest.generated";
+message UserAccounts{
+	message UserAccount{
+		optional string userName = 1;
+		optional string accountType = 2;
+		optional string password = 3;
+	}
+	repeated UserAccount userAccounts = 1;
+}

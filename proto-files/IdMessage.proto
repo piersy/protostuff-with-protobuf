@@ -1,0 +1,4 @@
+option java_package = "com.piersy.prototest.generated";
+message Id{
+	optional int32 id = 1;
+}
